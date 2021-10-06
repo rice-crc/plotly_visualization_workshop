@@ -8,11 +8,10 @@ It also contains a Dockerfile for building the environment for local and remote 
 
 These apps parse a large csv (~50MB) from the CDC: https://data.cdc.gov/NCHS/Weekly-counts-of-death-by-jurisdiction-and-cause-o/u6jv-9ijr/
 
-* 3 sample apps
-	* sample.R displays weekly mortality by for one cause, state, and year
-	* sample_withloop.R -- by multiple years for one cause and state
-	* sample_loop_plus_selector.R -- by multiple years with state, cause, & count type selectors
-* 1 production-ready app: excess_mortality.R, which draws on excess_stacked.R to do the calculation and graph formatting
+* sample.R displays weekly mortality by for one cause, state, and year
+* sample_withloop.R -- by multiple years for one cause and state
+* sample_loop_plus_selector.R -- by multiple years with state, cause, & count type selectors
+
 
 ## Local Deployment
 
@@ -69,6 +68,4 @@ To update and redeploy:
 	git commit -m 'a description of the changes'
 	git push heroku master
 
-
-![dash1](https://raw.githubusercontent.com/JohnMulligan/covid_dashR/master/Screen%20Shot%202021-01-10%20at%209.36.38%20PM.png)
 
