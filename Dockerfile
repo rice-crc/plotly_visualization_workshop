@@ -1,13 +1,13 @@
-FROM plotly/heroku-docker-r:3.6.2_heroku18 as base
+FROM plotly/heroku-docker-r:3.6.2_heroku18
 
-# install dependencies with init.R
-COPY init.R /app/init.R
-RUN /usr/bin/R --no-init-file --no-save --quiet --slave -f /app/init.R
+WORKDIR /app
 
-from base as build
+COPY src/init.R .
+RUN /usr/bin/R --no-init-file --no-save --quiet --slave -f init.R
 
-COPY . /app/
+COPY src/ .
 
 EXPOSE 8050
 
-CMD cd /app && /usr/bin/R --no-save -f /app/sample.R
+ENTRYPOINT ["/usr/bin/R", "--no-save", "-f"]
+CMD ["sample.R"]

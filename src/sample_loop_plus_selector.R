@@ -11,7 +11,7 @@ fig<-plot_ly()
 
 #https://dashr.plotly.com/
 
-counts <- read_delim("Weekly_counts_of_death_by_jurisdiction_and_cause_of_death.csv",delim=";")
+counts <- read_delim("data/Weekly_counts_of_death_by_jurisdiction_and_cause_of_death.csv",delim=";")
 
 jurisdiction<-"Texas"
 #cause<-"Diabetes"
@@ -50,7 +50,7 @@ htmlDiv(list(
 	htmlDiv(list(
 			dccGraph(id='fizz',figure=fig)
 	)),
-	
+
 	htmlDiv(
 			list(
 				htmlLabel('Listed Cause of Death'),
@@ -59,15 +59,15 @@ htmlDiv(list(
 					options = cause_dropdown_opts,
 					value = 'Diabetes'
 				),
-				
-			
+
+
 				htmlLabel('State'),
 				dccDropdown(
 					id = 'jurisdiction_dropdown',
 					options = jurisdiction_dropdown_opts,
 					value = "Texas"
 				),
-				
+
 				htmlLabel('Weighted or Raw Counts'),
 				dccRadioItems(
 					id = 'weighted_radio',
@@ -76,9 +76,9 @@ htmlDiv(list(
 				)
 			)
 	)
-	
-	
-	
+
+
+
 
 ))
 )
@@ -97,7 +97,7 @@ app$callback(
 		input(id='weighted_radio',property='value')
 	),
 	function(cause,jurisdiction,weighted) {
-		
+
 		for(year in years){
 		print(year)
 		counts_filtered<-filter(counts,`Type`==weighted,`Jurisdiction`==jurisdiction,`Cause Subgroup`==cause,`Year`==year)
@@ -130,8 +130,3 @@ app$callback(
 
 
 app$run_server(host='0.0.0.0',port=Sys.getenv('PORT',8050))
-
-
-
-
-
