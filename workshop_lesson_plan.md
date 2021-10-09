@@ -1,4 +1,4 @@
-# Workshop Lesoon Plan
+# Workshop Lesson Plan
 
 For the Dockerized Covid Dash in R repository.
 
