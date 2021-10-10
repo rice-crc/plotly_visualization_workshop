@@ -13,14 +13,11 @@ git clone https://github.com/<username>/plotly_visualization_workshop
 cd plotly_visualization_workshop
 ```
 
-Push a test file to the GitHub fork.
+Set your git email and name for commits.
 
 ```bash
-echo hello > new.txt
-
-git add .
-git commit -m "New file"
-git push
+git config --global user.email "<email>"
+git config --global user.name "<name>"
 ```
 
 ## Run local apps
@@ -71,7 +68,6 @@ Commit and push the change to the GitHub fork.
 ```bash
 git add .
 git commit -m "New default script"
-git push
 ```
 
 ## Run a remote app
@@ -87,6 +83,10 @@ Push the code to the Heroku app and deploy.
 ```bash
 git push heroku main
 ```
+
+Visit the running app in a browser window.
+
+https://viz-workshop-<unique>.herokuapp.com/
 
 ## Cleanup
 
