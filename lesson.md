@@ -72,6 +72,12 @@ git commit -m "New default script"
 
 ## Run a remote app
 
+Log in to Heroku through the command line using your Heroku account credentials.
+
+```bash
+heroku login -i
+```
+
 Create a new app in Heroku.
 
 ```bash
