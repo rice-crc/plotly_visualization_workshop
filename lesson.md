@@ -54,6 +54,12 @@ to:
 
     CMD ["sample_withloop.R"]
 
+Rebuild the Plotly Docker image. Caching should make this faster.
+
+```bash
+docker build -t workshop .
+```
+
 Test the new container default.
 
 ```bash
