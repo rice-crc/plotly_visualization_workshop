@@ -90,7 +90,7 @@ htmlDiv(list(
 
 
 app$callback(
-	output = list(id='fizz',property='figure'),
+	output = list(output(id='fizz',property='figure')),
 	params = list(
 		input(id='cause_dropdown',property='value'),
 		input(id='jurisdiction_dropdown',property='value'),
