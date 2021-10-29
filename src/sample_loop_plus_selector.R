@@ -7,7 +7,6 @@ library(tidyr)
 library(dplyr)
 
 app<-Dash$new()
-fig<-plot_ly()
 
 #https://dashr.plotly.com/
 
@@ -20,7 +19,6 @@ weighted<-"Unweighted"
 years<-unique(counts$Year)
 
 #https://plotly.com/python/line-charts/
-
 
 causes<-unique(counts$`Cause Subgroup`)
 cause_dropdown_opts<-list()
@@ -48,7 +46,7 @@ app$layout(
 htmlDiv(list(
 
 	htmlDiv(list(
-			dccGraph(id='fizz',figure=fig)
+			dccGraph(id='fizz')
 	)),
 
 	htmlDiv(
@@ -90,36 +88,34 @@ htmlDiv(list(
 
 
 app$callback(
-	output = list(output(id='fizz',property='figure')),
-	params = list(
+	output(id='fizz',property='figure'),
+	list(
 		input(id='cause_dropdown',property='value'),
 		input(id='jurisdiction_dropdown',property='value'),
 		input(id='weighted_radio',property='value')
 	),
 	function(cause,jurisdiction,weighted) {
-
+		fig<-plot_ly()
 		for(year in years){
-		print(year)
-		counts_filtered<-filter(counts,`Type`==weighted,`Jurisdiction`==jurisdiction,`Cause Subgroup`==cause,`Year`==year)
-		df<-counts_filtered %>% select(`Number of Deaths`,`Week`)
-		fig <- fig %>% add_trace(
-			x=df$Week,
-			y=df$`Number of Deaths`,
-			name=year,
-			type='scatter',
-			mode='lines'
-		)
+			print(year)
+			counts_filtered<-filter(counts,`Type`==weighted,`Jurisdiction`==jurisdiction,`Cause Subgroup`==cause,`Year`==year)
+			df<-counts_filtered %>% select(`Number of Deaths`,`Week`)
+			fig <- fig %>% add_trace(
+				x=df$Week,
+				y=df$`Number of Deaths`,
+				name=year,
+				type='scatter',
+				mode='lines'
+			)
+			
 		}
-
 		fig <- fig %>% layout(
 			title=paste(c(jurisdiction,cause,"Mortality"),collapse=" "),
 			xaxis=list('title'='Week'),
 			yaxis=list('title'="title"),
 			paper_bgcolor = '#c3d1e8'
-
 		)
-
-		result<-fig
+		fig
 	}
 )
 
