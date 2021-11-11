@@ -13,7 +13,10 @@
               install.packages('remotes')
               install.packages('plyr')
               install.packages('dash')
+              install.packages('dashCoreComponents')
+              install.packages('dashHtmlComponents')
               install.packages('tidyr')
               install.packages('readr')
               install.packages('plotly')
 		remotes::install_github('plotly/dashR', upgrade=TRUE)
+
