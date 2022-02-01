@@ -20,6 +20,30 @@ git config --global user.email "<email>"
 git config --global user.name "<name>"
 ```
 
+## Run a remote app
+
+Log in to Heroku through the command line using your Heroku account credentials.
+
+```bash
+heroku login -i
+```
+
+Create a new app in Heroku.
+
+```bash
+heroku create --stack container viz-workshop-<unique>
+```
+
+Push the code to the Heroku app and deploy.
+
+```bash
+git push heroku main
+```
+
+Visit the running app in a browser window.
+
+https://viz-workshop-<unique>.herokuapp.com/
+
 ## Run local apps
 
 Build the Plotly Docker image.
@@ -70,29 +94,6 @@ git add .
 git commit -m "New default script"
 ```
 
-## Run a remote app
-
-Log in to Heroku through the command line using your Heroku account credentials.
-
-```bash
-heroku login -i
-```
-
-Create a new app in Heroku.
-
-```bash
-heroku create --stack container viz-workshop-<unique>
-```
-
-Push the code to the Heroku app and deploy.
-
-```bash
-git push heroku main
-```
-
-Visit the running app in a browser window.
-
-https://viz-workshop-<unique>.herokuapp.com/
 
 ## Cleanup
 
