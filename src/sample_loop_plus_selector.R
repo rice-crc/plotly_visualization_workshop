@@ -10,7 +10,7 @@ app<-Dash$new()
 
 #https://dashr.plotly.com/
 
-counts <- read_delim("data/Weekly_counts_of_death_by_jurisdiction_and_cause_of_death.csv",delim=";")
+counts <- read_delim("data/Weekly_counts_of_death_by_jurisdiction_and_cause_of_death.csv",delim=",")
 
 jurisdiction<-"Texas"
 #cause<-"Diabetes"
