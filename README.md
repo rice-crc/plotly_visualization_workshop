@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+* [RStudio Cloud Notebook](#rstudio-cloud-notebook)
 * [Getting Started](#getting-started)
 	* [Data and Apps](#data-and-apps)
 	* [Requirements](#requirements)
@@ -10,6 +11,31 @@
 * [Remote Deployment](#remote-deployment)
 * [Making Code Changes](#making-code-changes)
 * [Cleanup](#cleanup)
+
+
+## RStudio Cloud Notebook
+
+I chose Plotly for this workshop because it is
+
+1. very nicely styled
+1. has excellent interactivity
+1. deploys well to the cloud
+
+However, it's also
+
+1. extremely touchy & hard to debug
+1. and that goes double for Plotly R
+1. double it again in Docker
+
+So it's worth being clear that in developing this code, I used RStudio in the early stages.
+
+RStudio Cloud is a free service that is great for trying code out and learning new packages in a controlled environment.
+
+I'm therefore providing one of these scripts running in a public notebook by way of example: https://rstudio.cloud/project/3676724
+
+As you'll see, the syntax is a little different! R has been updated -- and down the line, I'm likely to update this git repo as well to reflect those changes.
+
+[Return to Top](#table-of-contents)
 
 ## Getting Started
 
